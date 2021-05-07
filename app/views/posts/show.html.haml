@@ -1,0 +1,11 @@
+.content
+    %h1= @post.title
+    %small= @post.user.email
+    %hr
+    %p= @post.body
+    %br
+    %small= link_to "Retour", root_path
+
+- if current_user == @post.user
+    %small= link_to "Modifier", edit_post_path(@post)
+    %small= link_to "Supprimer", @post, method: :delete, data:{ confirm: "Voulez-vous vraiment supprimer cette astuce ?"}
